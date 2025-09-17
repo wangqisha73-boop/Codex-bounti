@@ -1,0 +1,30 @@
+{
+  "name": "bounti",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev:ai:matching": "tsx server/ai/matching.ts",
+    "dev:ai:suggest": "tsx server/ai/suggest.ts",
+    "dev:blocks": "tsx server/blocksApi.ts",
+    "dev:worker:notify": "tsx worker/notifyHunters.ts",
+    "dev:worker:ingest": "tsx worker/ingestSolved.ts",
+    "dev": "concurrently -k -n match,suggest,blocks,notify,ingest -c yellow,cyan,magenta,green,blue \"npm:dev:ai:matching\" \"npm:dev:ai:suggest\" \"npm:dev:blocks\" \"npm:dev:worker:notify\" \"npm:dev:worker:ingest\""
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "bullmq": "^5.7.7",
+    "concurrently": "^9.0.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "pg": "^8.11.3",
+    "redis": "^4.6.13",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.16.2",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.10",
+    "@types/react": "^18.2.43",
+    "typescript": "^5.5.4"
+  }
+}
